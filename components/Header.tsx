@@ -61,7 +61,7 @@ export default function Header() {
         </svg>
       </button>
       {mobileMenuOpen && (
-        <div className="fixed top-0 left-0 h-full w-80 bg-white dark:bg-black shadow-lg z-50 flex flex-col p-6 gap-4 transition-transform duration-300">
+        <div className="fixed top-0 left-0 h-full w-70 bg-white dark:bg-black shadow-lg z-50 flex flex-col p-6 gap-4 transition-transform duration-300">
           {/* Close button */}
 
           {/* Sidebar items */}
