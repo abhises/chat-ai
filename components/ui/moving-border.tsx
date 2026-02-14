@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   motion,
   useAnimationFrame,
@@ -33,7 +33,7 @@ export function Button({
     <Component
       className={cn(
         "relative overflow-hidden p-px text-sm h-full flex-1", // flexible height
-        containerClassName
+        containerClassName,
       )}
       style={{ borderRadius }}
       {...otherProps}
@@ -46,7 +46,7 @@ export function Button({
           <div
             className={cn(
               "h-20 w-20 bg-[radial-gradient(circle,#0ea5e9_40%,transparent_60%)] dark:bg-[radial-gradient(circle,#3b82f6_40%,transparent_60%)] opacity-80",
-              borderClassName
+              borderClassName,
             )}
           />
         </MovingBorder>
@@ -55,7 +55,7 @@ export function Button({
       <div
         className={cn(
           "relative p-2 flex h-full w-full items-center justify-center border bg-white/80 text-black border-neutral-300 dark:bg-slate-900/80 dark:text-white dark:border-slate-800 text-sm antialiased backdrop-blur-xl cursor-pointer",
-          className
+          className,
         )}
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
       >
@@ -80,23 +80,44 @@ export const MovingBorder = ({
 }) => {
   const pathRef = useRef<SVGRectElement | null>(null);
   const progress = useMotionValue<number>(0);
+  const [length, setLength] = useState<number | null>(null);
 
-  useAnimationFrame((time) => {
-    const length = pathRef.current?.getTotalLength();
-    if (length) {
-      const pxPerMillisecond = length / duration;
-      progress.set((time * pxPerMillisecond) % length);
+  // Measure length **once after mount**
+  useEffect(() => {
+    if (pathRef.current?.getTotalLength) {
+      try {
+        const l = pathRef.current.getTotalLength();
+        setLength(l);
+      } catch (err) {
+        console.warn("SVG not ready yet", err);
+      }
     }
+  }, []); // ✅ empty array ensures this runs only once
+
+  // Animate only if length exists
+  useAnimationFrame((time) => {
+    if (!length) return;
+    const pxPerMillisecond = length / duration;
+    progress.set((time * pxPerMillisecond) % length);
   });
 
-  const x = useTransform(
-    progress,
-    (val) => pathRef.current?.getPointAtLength(val).x
-  );
-  const y = useTransform(
-    progress,
-    (val) => pathRef.current?.getPointAtLength(val).y
-  );
+  const x = useTransform(progress, (val) => {
+  if (!pathRef.current || !pathRef.current.getPointAtLength) return 0;
+  try {
+    return pathRef.current.getPointAtLength(val).x;
+  } catch {
+    return 0; // fallback if the path is not ready yet
+  }
+});
+
+const y = useTransform(progress, (val) => {
+  if (!pathRef.current || !pathRef.current.getPointAtLength) return 0;
+  try {
+    return pathRef.current.getPointAtLength(val).y;
+  } catch {
+    return 0;
+  }
+});
 
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;
 

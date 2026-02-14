@@ -29,7 +29,7 @@ export default function HomePage() {
         </div>
 
         <div className="flex items-center justify-center mt-4 max-w-5xl">
-          <Button onClick={() => router.push(`/${locale}/profile`)}>{q("getStarted")}</Button>
+          <Button className="hover:scale-110" onClick={() => router.push(`/${locale}/profile`)}>{q("getStarted")}</Button>
         </div>
       </div>
     </main>
