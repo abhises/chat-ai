@@ -2,10 +2,10 @@
 
 import { usePathname } from "next/navigation";
 import { LocaleProvider } from "@/components/locale-provider";
-import { ThemeProvider } from "next-themes";
 import en from "../../locales/en.json";
 import fr from "../../locales/fr.json";
 import de from "../../locales/de.json";
+import Header from "@/components/Header";
 
 const LOCALES: Record<string, any> = { en, fr, de };
 
@@ -19,10 +19,10 @@ export default function LocaleLayout({ children }: Props) {
   const messages = LOCALES[locale] || LOCALES["en"];
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
-      <LocaleProvider locale={locale} messages={messages} timeZone="utc" >
-        {children}
-      </LocaleProvider>
-    </ThemeProvider>
+    <LocaleProvider locale={locale} messages={messages} timeZone="utc">
+      <Header />
+
+      {children}
+    </LocaleProvider>
   );
 }

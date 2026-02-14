@@ -4,6 +4,9 @@
     "flip": ["Diplôme", "Budget"],
     "subHeadline": "Nabous AI Guide™ est une plateforme structurée alimentée par l’IA, conçue pour aider les individus à générer des premiers revenus réalistes en utilisant leurs compétences existantes et leurs ressources locales."
   },
+  "header": {
+    "getStarted": "Commencer"
+  },
   "welcome": "Bienvenue",
   "greeting": "Bonjour, comment allez-vous ?"
 }
