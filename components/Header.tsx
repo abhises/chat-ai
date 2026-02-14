@@ -4,8 +4,8 @@ import { Button } from "../components/ui/moving-border";
 
 export default function Header() {
   return (
-   <header className="flex justify-between items-center p-4 bg-white dark:bg-black">
-  <h1 className="text-xl font-bold">My App</h1>
+   <header className="flex justify-between items-center p-6 bg-white dark:bg-black">
+  <h1 className="text-xl font-bold">Nabous AI Guide</h1>
   <div className="flex gap-2 items-stretch">
     <Button
       borderRadius="1rem"

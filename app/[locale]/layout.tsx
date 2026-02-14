@@ -20,7 +20,7 @@ export default function LocaleLayout({ children }: Props) {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system">
-      <LocaleProvider locale={locale} messages={messages}>
+      <LocaleProvider locale={locale} messages={messages} timeZone="utc" >
         {children}
       </LocaleProvider>
     </ThemeProvider>

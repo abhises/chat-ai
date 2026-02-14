@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My Multilingual App",
-  description: "Next.js 16 + Theme + i18n example",
+  title: "Nabous AI Guide – Step-by-step First Income",
+  description: "Helps transform your skills into first income streams using AI, with a simple plan and concrete actions — even without a diploma",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

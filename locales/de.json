@@ -1,4 +1,9 @@
 {
+  "homepage": {
+    "headline": "Verwandle deine Fähigkeiten in Einkommen auch ohne",
+    "flip": ["Abschluss", "Startkapital"],
+    "subHeadline": "Nabous AI Guide™ ist eine strukturierte, KI-gestützte Plattform, die Menschen dabei unterstützt, realistische erste Einnahmen mit ihren vorhandenen Fähigkeiten und lokalen Ressourcen zu erzielen."
+  },
   "welcome": "Willkommen",
-  "greeting": "Hallo, wie geht's?"
+  "greeting": "Hallo, wie geht es dir?"
 }
