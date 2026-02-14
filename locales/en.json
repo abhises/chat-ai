@@ -10,5 +10,17 @@
   },
 
   "welcome": "Welcome",
-  "greeting": "Hello, how are you?"
+  "greeting": "Hello, how are you?",
+  "profile": {
+    "header": "Fill in your profile to generate your first realistic income path.",
+    "location": "Location/Country",
+    "hours":"Available hours per day",
+    "device":"Device access(mobile or laptop)",
+    "skill":"Skill",
+    "income":"Income goal",
+    "button1":"Generate a plan",
+    "button2":"Ask another question",
+    "generatingplan":"Generating plan..."
+
+  }
 }

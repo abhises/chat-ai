@@ -2,11 +2,23 @@
   "homepage": {
     "headline": "Transformez vos compétences en revenus même sans",
     "flip": ["Diplôme", "Budget"],
-    "subHeadline": "Nabous AI Guide™ est une plateforme structurée alimentée par l’IA, conçue pour aider les individus à générer des premiers revenus réalistes en utilisant leurs compétences existantes et leurs ressources locales."
+    "subHeadline": "Nabous AI Guide™ est une plateforme structurée alimentée par l’IA, conçue pour aider les individus à générer des premiers revenus réalistes en utilisant leurs compétences existantes et leurs ressources locales.",
+    "getStarted": "Commencer"
   },
   "header": {
     "getStarted": "Commencer"
   },
   "welcome": "Bienvenue",
-  "greeting": "Bonjour, comment allez-vous ?"
+  "greeting": "Bonjour, comment allez-vous ?",
+  "profile": {
+    "header": "Remplissez votre profil pour générer votre premier parcours de revenu réaliste.",
+    "location": "Lieu/Pays",
+    "hours": "Heures disponibles par jour",
+    "device": "Accès à un appareil (mobile ou ordinateur)",
+    "skill": "Compétence",
+    "income": "Objectif de revenu",
+    "button1": "Générer un plan",
+    "button2": "Poser une autre question",
+    "generatingplan": "Génération du plan..."
+  }
 }

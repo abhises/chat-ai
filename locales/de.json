@@ -10,5 +10,16 @@
     "getStarted": "Loslegen"
   },
   "welcome": "Willkommen",
-  "greeting": "Hallo, wie geht es dir?"
+  "greeting": "Hallo, wie geht es dir?",
+  "profile": {
+    "header": "Füllen Sie Ihr Profil aus, um Ihren ersten realistischen Einkommenspfad zu erstellen.",
+    "location": "Ort/Land",
+    "hours": "Verfügbare Stunden pro Tag",
+    "device": "Gerätezugang (Mobilgerät oder Laptop)",
+    "skill": "Fähigkeit",
+    "income": "Einkommensziel",
+    "button1": "Plan erstellen",
+    "button2": "Eine weitere Frage stellen",
+    "generatingplan": "Plan wird erstellt..."
+  }
 }
