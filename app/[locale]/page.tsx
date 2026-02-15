@@ -134,9 +134,9 @@ export default function HomePage() {
         </div>
 
         {/* Cards Grid */}
-        <div className="lg:ml-60 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4 mt-4">
+        <div className="lg:ml-60 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-3 md:gap-4 mt-4">
           <MovingCard
-            className="hover:scale-110 cursor-pointer aspect-square"
+            className="hover:scale-110 cursor-pointer sm:aspect-square"
             onClick={() => generate(getProfileFromCard("canada"))}
           >
             <div className="flex flex-col">
@@ -151,7 +151,7 @@ export default function HomePage() {
           </MovingCard>
 
           <MovingCard
-            className="hover:scale-110 cursor-pointer aspect-square"
+            className="hover:scale-110 cursor-pointer sm:aspect-square"
             onClick={() => generate(getProfileFromCard("senegal"))}
           >
             <div className="flex flex-col">
@@ -167,7 +167,7 @@ export default function HomePage() {
           </MovingCard>
 
           <MovingCard
-            className="hover:scale-110 cursor-pointer aspect-square"
+            className="hover:scale-110 cursor-pointer sm:aspect-square"
             onClick={() => generate(getProfileFromCard("france"))}
           >
             <div className="flex flex-col">
@@ -182,7 +182,7 @@ export default function HomePage() {
           </MovingCard>
 
           <MovingCard
-            className="hover:scale-110 cursor-pointer aspect-square"
+            className="hover:scale-110 cursor-pointer sm:aspect-square"
             onClick={() => generate(getProfileFromCard("germany"))}
           >
             <div className="flex flex-col">
