@@ -182,7 +182,7 @@ const [chatHistory, setChatHistory] = useState<{ role: "user" | "ai"; content: s
         {/* Loader and Generated Response */}
         <div
           ref={responseRef}
-          className="mt-8 flex max-w-full mx-40 items-center justify-center"
+          className="mt-8 flex max-w-full md:mx-5 lg:mx-40 items-center justify-center"
         >
           {loading && (
             <div className="text-blue-500 animate-pulse text-sm flex items-center gap-2">
@@ -196,7 +196,7 @@ const [chatHistory, setChatHistory] = useState<{ role: "user" | "ai"; content: s
 
         {/* CHAT TEXTAREA — ONLY SHOW AFTER RESPONSE */}
         {!loading && responseText && (
-          <div className="mt-6 mx-40  max-w-full flex gap-2 items-center">
+          <div className="mt-6 max-w-full flex gap-2  md:mx-5 lg:mx-40  items-center">
             <textarea
               className="w-full p-2 border rounded-md dark:bg-slate-800 dark:text-white text-sm"
               placeholder="Type your message..."
