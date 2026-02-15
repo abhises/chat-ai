@@ -207,9 +207,9 @@ export default function HomePage() {
               Generating response <LoaderOne />
             </div>
           )}
-          {!loading && responseText && (
+          {/* {!loading && responseText && (
             <TextGenerateEffect words={responseText} className="text-md" />
-          )}
+          )} */}
         </div>
         {chatHistory.length > 0 && (
           <div className="mt-4 max-w-full md:mx-5 lg:mx-40 flex flex-col gap-3">
