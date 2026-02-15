@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
+import { getSystemPrompt } from "@/lib/systemPrompt";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -7,15 +8,26 @@ const openai = new OpenAI({
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json();
+    const { messages, locale = "en", profile } = await req.json();
 
-    if (!messages || !Array.isArray(messages)) {
-      return NextResponse.json({ error: "Invalid messages payload" }, { status: 400 });
+    if (!profile) {
+      return NextResponse.json({ error: "Profile is required" }, { status: 400 });
     }
 
+    const systemPrompt = getSystemPrompt(locale);
+
+    const chatMessages = [
+      { role: "system", content: systemPrompt },
+      {
+        role: "user",
+        content: `User selected profile:\n${JSON.stringify(profile, null, 2)}\nPlease follow the Nabous AI Guide structure.`
+      },
+      ...(messages || [])
+    ];
+
     const response = await openai.chat.completions.create({
-      model: "gpt-4",
-      messages: messages,
+      model: "gpt-4o-mini",
+      messages: chatMessages,
       temperature: 0.7,
     });
 

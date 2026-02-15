@@ -19,13 +19,42 @@
   "profile": {
     "header": "Fill in your profile to generate your first realistic income path.",
     "location": "Location/Country",
-    "hours":"Available hours per day",
-    "device":"Device access(mobile or laptop)",
-    "skill":"Skill",
-    "income":"Income goal",
-    "button1":"Generate a plan",
-    "button2":"Ask another question",
-    "generatingplan":"Generating plan..."
+    "hours": "Available hours per day",
+    "device": "Device access(mobile or laptop)",
+    "skill": "Skill",
+    "income": "Income goal",
+    "button1": "Generate a plan",
+    "button2": "Ask another question",
+    "generatingplan": "Generating plan...",
 
+    "canada": {
+      "title": "Canada Case Profile",
+      "type": "Immigrant",
+      "device": "Laptop Access",
+      "language": "Bilingual",
+      "availability": "3 hours per day"
+    },
+    "senegal": {
+      "title": "Senegal Case Profile",
+      "age": "24 years old",
+      "device": "Laptop Access",
+      "language": "Bilingual",
+      "availability": "3 hours per day",
+      "budget": "No budget"
+    },
+    "france": {
+      "title": "France Case Profile",
+      "type": "Immigrant",
+      "device": "Laptop Access",
+      "language": "Bilingual",
+      "availability": "3 hours per day"
+    },
+    "germany": {
+      "title": "Germany Case Profile",
+      "type": "Immigrant",
+      "device": "Laptop Access",
+      "language": "Bilingual",
+      "availability": "3 hours per day"
+    }
   }
 }

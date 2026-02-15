@@ -25,6 +25,35 @@
     "income": "Objectif de revenu",
     "button1": "Générer un plan",
     "button2": "Poser une autre question",
-    "generatingplan": "Génération du plan..."
+    "generatingplan": "Génération du plan...",
+    "canada": {
+    "title": "Profil Cas Canada",
+    "type": "Immigré(e)",
+    "device": "Accès à un ordinateur portable",
+    "language": "Bilingue",
+    "availability": "3 heures par jour"
+  },
+  "senegal": {
+    "title": "Profil Cas Sénégal",
+    "age": "24 ans",
+    "device": "Accès à un ordinateur portable",
+    "language": "Bilingue",
+    "availability": "3 heures par jour",
+    "budget": "Aucun budget"
+  },
+  "france": {
+    "title": "Profil Cas France",
+    "type": "Immigré(e)",
+    "device": "Accès à un ordinateur portable",
+    "language": "Bilingue",
+    "availability": "3 heures par jour"
+  },
+  "germany": {
+    "title": "Profil Cas Allemagne",
+    "type": "Immigré(e)",
+    "device": "Accès à un ordinateur portable",
+    "language": "Bilingue",
+    "availability": "3 heures par jour"
+  }
   }
 }

@@ -24,6 +24,36 @@
     "income": "Einkommensziel",
     "button1": "Plan erstellen",
     "button2": "Eine weitere Frage stellen",
-    "generatingplan": "Plan wird erstellt..."
+    "generatingplan": "Plan wird erstellt...",
+
+    "canada": {
+      "title": "Fallprofil Kanada",
+      "type": "Einwanderer/in",
+      "device": "Zugang zu einem Laptop",
+      "language": "Zweisprachig",
+      "availability": "3 Stunden pro Tag"
+    },
+    "senegal": {
+      "title": "Fallprofil Senegal",
+      "age": "24 Jahre alt",
+      "device": "Zugang zu einem Laptop",
+      "language": "Zweisprachig",
+      "availability": "3 Stunden pro Tag",
+      "budget": "Kein Budget"
+    },
+    "france": {
+      "title": "Fallprofil Frankreich",
+      "type": "Einwanderer/in",
+      "device": "Zugang zu einem Laptop",
+      "language": "Zweisprachig",
+      "availability": "3 Stunden pro Tag"
+    },
+    "germany": {
+      "title": "Fallprofil Deutschland",
+      "type": "Einwanderer/in",
+      "device": "Zugang zu einem Laptop",
+      "language": "Zweisprachig (Deutsch + weitere Sprache)",
+      "availability": "3 Stunden pro Tag"
+    }
   }
 }
