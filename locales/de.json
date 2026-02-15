@@ -1,11 +1,15 @@
 {
   "homepage": {
-    "headline": "Verwandle deine Fähigkeiten in Einkommen auch ohne",
-    "flip": ["Abschluss", "Startkapital"],
-    "subHeadline": "Nabous AI Guide™ ist eine strukturierte, KI-gestützte Plattform, die Menschen dabei unterstützt, realistische erste Einnahmen mit ihren vorhandenen Fähigkeiten und lokalen Ressourcen zu erzielen.",
-    "getStarted": "Loslegen"
+    "headline": "Nabous AI Guide – Erste Einnahmen Schritt für Schritt",
+    "flip": ["", ""],
+    "subHeadline": "Hilft dir, deine Fähigkeiten mithilfe von KI in erste Einnahmen zu verwandeln – mit einem einfachen Plan und konkreten Schritten, auch ohne Abschluss.",
+    "description": [
+      "Hilf mir, eine einfache erste Idee zu finden, um mit KI Geld zu verdienen.",
+      "Ich bin in Kanada oder Europa und möchte meinen ersten Kunden finden.",
+      "Ich bin in Afrika und suche eine einfache Service-Idee.",
+      "Ich weiß nicht, was ich verkaufen soll – hilf mir bei der Entscheidung."
+    ]
   },
-
   "header": {
     "getStarted": "Loslegen"
   },

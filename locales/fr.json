@@ -1,8 +1,14 @@
 {
   "homepage": {
-    "headline": "Transformez vos compétences en revenus même sans",
-    "flip": ["Diplôme", "Budget"],
-    "subHeadline": "Nabous AI Guide™ est une plateforme structurée alimentée par l’IA, conçue pour aider les individus à générer des premiers revenus réalistes en utilisant leurs compétences existantes et leurs ressources locales.",
+    "headline": "Nabous AI Guide – Premiers revenus pas à pas",
+    "flip": ["", ""],
+    "subHeadline": "Aide à transformer tes compétences en premiers revenus grâce à l’IA, avec un plan simple et des actions concrètes — Même sans diplôme.",
+    "description": [
+      "Aide-moi à trouver une première idée simple pour gagner de l’argent avec l’IA.",
+      "Je suis au Canada ou en Europe et je veux trouver un premier client.",
+      "Je suis en Afrique et je cherche une idée de service simple.",
+      "Je ne sais pas quoi vendre, aide-moi à choisir."
+    ],
     "getStarted": "Commencer"
   },
   "header": {

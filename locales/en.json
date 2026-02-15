@@ -1,9 +1,14 @@
 {
   "homepage": {
-    "headline": "Turn Skills Into Income Even With",
-    "flip": ["No Degree", "No Budget"],
-    "subHeadline": "Nabous AI Guide™ is a structured AI-powered platform designed to help individuals generate realistic first income streams using their existing abilities and local resources.",
-    "getStarted": "Get Started"
+    "headline": "Nabous AI Guide – First Income Step by Step",
+    "flip": ["", ""],
+    "subHeadline": "Helping you turn your skills into your first income using AI, with a simple plan and concrete actions — even without a degree.",
+    "description": [
+      "Help me find a simple first idea to earn money using AI.",
+      "I am in Canada or Europe and I want to find my first client.",
+      "I am in Africa and I am looking for a simple service idea.",
+      "I don’t know what to sell — help me choose."
+    ]
   },
   "header": {
     "getStarted": "Get Started"

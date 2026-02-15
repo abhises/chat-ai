@@ -16,10 +16,10 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="flex justify-between items-center p-6 bg-white dark:bg-black">
+    <header className="flex justify-between items-center p-6 bg-white dark:bg-black border-b-3 border-b-gray-200 dark:border-none">
       <h1 className="text-xl font-bold">Nabous AI Guide</h1>
       <div className="hidden sm:flex gap-2 ">
-        {pathname === "/en/profile" ? null : (
+        {/* {pathname === "/en/profile" ? null : (
           <Button
             borderRadius="1rem"
             className="text-sm text-black dark:text-white border border-neutral-200 dark:border-slate-800 hover:scale-105"
@@ -27,7 +27,7 @@ export default function Header() {
           >
             {t("getStarted")}
           </Button>
-        )}
+        )} */}
 
         <LanguageSelector />
         <ThemeToggle />
@@ -66,8 +66,8 @@ export default function Header() {
 
           {/* Sidebar items */}
 
-          <div className="flex  items-start gap-1">
-            {pathname === "/en/profile" ? null : (
+          <div className="flex items-start gap-1">
+            {/* {pathname === "/en/profile" ? null : (
               <Button
                 borderRadius="1rem"
                 className="text-sm text-black dark:text-white border border-neutral-200 dark:border-slate-800 hover:scale-105 w-full"
@@ -78,7 +78,7 @@ export default function Header() {
               >
                 {t("getStarted")}
               </Button>
-            )}
+            )} */}
             <ThemeToggle />
             <LanguageSelector />
           </div>
