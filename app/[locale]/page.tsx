@@ -9,7 +9,8 @@ import { EncryptedText } from "@/components/ui/encrypted-text";
 import { MovingCard } from "@/components/MovingCard";
 import { useState, useRef, useEffect } from "react";
 import { LoaderOne } from "@/components/ui/loader";
-
+// import { Button } from "@/components/ui/moving-border";
+import { Send } from "lucide-react";
 export default function HomePage() {
   const t = useTranslations("homepage");
   const p = useTranslations("profile");
@@ -19,7 +20,9 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [responseText, setResponseText] = useState("");
   const [userMessage, setUserMessage] = useState("");
-const [chatHistory, setChatHistory] = useState<{ role: "user" | "ai"; content: string }[]>([]);
+  const [chatHistory, setChatHistory] = useState<
+    Array<{ id: string; role: string; content: string }>
+  >([]);
 
   const responseRef = useRef<HTMLDivElement | null>(null);
 
@@ -42,14 +45,28 @@ const [chatHistory, setChatHistory] = useState<{ role: "user" | "ai"; content: s
         body: JSON.stringify({
           locale,
           profile: cardProfile || {},
-          messages: userMessage
-            ? [{ role: "user", content: userMessage }]
-            : [],
+          messages: userMessage ? [{ role: "user", content: userMessage }] : [],
         }),
       });
 
       const data = await res.json();
+
       setResponseText(data.reply || "No response received.");
+
+      setChatHistory((prev) => [
+        ...prev,
+        {
+          id: Date.now().toString(),
+          role: "user",
+          content: userMessage || "Profile selected",
+        },
+        {
+          id: (Date.now() + 1).toString(),
+          role: "assistant",
+          content: data.reply || "No response received.",
+        },
+      ]);
+
       setUserMessage("");
     } catch (err) {
       console.error(err);
@@ -59,6 +76,7 @@ const [chatHistory, setChatHistory] = useState<{ role: "user" | "ai"; content: s
     }
   };
 
+  // console.log("chathistory",chatHistory)
   // Explicitly read translation strings to fix INSUFFICIENT_PATH error
   const getProfileFromCard = (key: string) => {
     switch (key) {
@@ -112,7 +130,7 @@ const [chatHistory, setChatHistory] = useState<{ role: "user" | "ai"; content: s
         </div>
 
         <div className="mt-10 text-center text-base text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          <TextGenerateEffect words={t("subHeadline")} />
+          <TextGenerateEffect words={t("subHeadline")} className="text-2xl" />
         </div>
 
         {/* Cards Grid */}
@@ -190,9 +208,29 @@ const [chatHistory, setChatHistory] = useState<{ role: "user" | "ai"; content: s
             </div>
           )}
           {!loading && responseText && (
-            <TextGenerateEffect words={responseText} className="text-sm" />
+            <TextGenerateEffect words={responseText} className="text-md" />
           )}
         </div>
+        {chatHistory.length > 0 && (
+          <div className="mt-4 max-w-full md:mx-5 lg:mx-40 flex flex-col gap-3">
+            {chatHistory.map((msg) => (
+              <div
+                key={msg.id}
+                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`px-4 py-2 rounded-lg max-w-xs wrap-break-words ${
+                    msg.role === "user"
+                      ? "bg-blue-600 text-white rounded-br-none"
+                      : "bg-gray-200 dark:bg-slate-800 text-black dark:text-white rounded-bl-none"
+                  }`}
+                >
+                  <TextGenerateEffect words={msg.content} className="text-sm" />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* CHAT TEXTAREA — ONLY SHOW AFTER RESPONSE */}
         {!loading && responseText && (
@@ -205,11 +243,11 @@ const [chatHistory, setChatHistory] = useState<{ role: "user" | "ai"; content: s
               rows={2}
             />
             <button
-              className="mt-2 px-6 py-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="mt-2 px-2 py-5 bg-blue-600 text-white rounded-md hover:bg-blue-800 cursor-pointer hover:-translate-y-1.5"
               onClick={() => generate()}
               disabled={!userMessage.trim()}
             >
-              Send
+              <Send />
             </button>
           </div>
         )}
