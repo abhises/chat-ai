@@ -1,16 +1,25 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 import { NextResponse } from 'next/server'
 
-const isPublicRoute = createRouteMatcher(['/sign-in(.*)'])
-const isAdminRoute = createRouteMatcher(['/'])
+const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/not-authorized'])
+const isAdminRoute = createRouteMatcher(['/en','/fe','/de'])
 
 export default clerkMiddleware(async (auth, req) => {
-  const { sessionClaims } = await auth()
+  const { sessionClaims, userId } = await auth()
   
   // Protect admin route - only users with admin role can access
-  if (isAdminRoute(req) && sessionClaims?.metadata?.role !== 'admin') {
-    const url = new URL('/not-authorized', req.url)
-    return NextResponse.redirect(url)
+  if (isAdminRoute(req)) {
+    // If user is not signed in, protect the route
+    if (!userId) {
+      await auth.protect()
+      return
+    }
+    
+    // If user is signed in but doesn't have admin role, redirect to not-authorized
+    if (sessionClaims?.metadata?.role !== 'admin') {
+      const url = new URL('/not-authorized', req.url)
+      return NextResponse.redirect(url)
+    }
   }
   
   // Protect all other non-public routes

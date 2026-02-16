@@ -11,6 +11,7 @@ import { useState, useRef, useEffect } from "react";
 import { LoaderOne } from "@/components/ui/loader";
 // import { Button } from "@/components/ui/moving-border";
 import { Send } from "lucide-react";
+import Image from "next/image";
 export default function HomePage() {
   const t = useTranslations("homepage");
   const p = useTranslations("profile");
@@ -123,7 +124,17 @@ export default function HomePage() {
 
   return (
     <main className="p-8 bg-white flex justify-center dark:bg-black text-black dark:text-white min-h-screen">
-      <div className="mt-15">
+      <div className="mt-6">
+        <div className="flex justify-center mb-4 rounded-full">
+                        <Image
+                          src="/logo.png"       // Place your logo in public/logo.png
+                          alt="Logo"
+                          width={200}           // Adjust size as needed
+                          height={200}
+                          className="object-contain"
+                          priority               // Loads logo quickly
+                        />
+                      </div>
         <motion.div className="relative mx-4 my-4 flex flex-col items-center justify-center gap-4 text-center sm:mx-0 sm:mb-0 sm:flex-row">
           <LayoutTextFlip text={`${t("headline")}`} />
         </motion.div>
