@@ -6,42 +6,27 @@ export function MovingCard({
   borderRadius = "1rem",
   children,
   containerClassName,
-  borderClassName,
-  duration = 4000,
   className,
   ...otherProps
 }: {
   borderRadius?: string;
   children: React.ReactNode;
   containerClassName?: string;
-  borderClassName?: string;
-  duration?: number;
   className?: string;
   [key: string]: any;
 }) {
   return (
     <div
       className={cn(
-        "relative overflow-hidden p-px flex items-center justify-center",
+        "relative overflow-hidden p-px flex items-center justify-center border border-neutral-300 dark:border-slate-800",
         containerClassName
       )}
       style={{ borderRadius }}
       {...otherProps}
     >
-      {/* Moving border */}
-      <MovingBorder duration={duration} rx="30%" ry="30%">
-        <div
-          className={cn(
-            "h-20 w-20 bg-[radial-gradient(circle,#0ea5e9_40%,transparent_60%)] dark:bg-[radial-gradient(circle,#3b82f6_40%,transparent_60%)] opacity-80",
-            borderClassName
-          )}
-        />
-      </MovingBorder>
-
-      {/* Card content */}
       <div
         className={cn(
-          "relative p-4 flex items-center justify-center w-full h-full border bg-white/80 dark:bg-slate-900/80 text-black dark:text-white border-neutral-300 dark:border-slate-800 text-sm antialiased backdrop-blur-xl",
+          "relative p-4 flex items-center justify-center w-full h-full bg-white/80 dark:bg-slate-900/80 text-black dark:text-white text-sm antialiased backdrop-blur-xl",
           className
         )}
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
@@ -51,7 +36,6 @@ export function MovingCard({
     </div>
   );
 }
-
 export const MovingBorder = ({
   children,
   duration = 3000,
