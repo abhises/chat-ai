@@ -36,49 +36,54 @@ export default function HomePage() {
 
   // Generate AI response for selected profile or user message
   const generate = async (cardMessage?: string) => {
-    setLoading(true);
-    setResponseText("");
+  setLoading(true);
+  setResponseText("");
 
-    const finalMessage = cardMessage || userMessage;
+  // Scroll to loader immediately
+  if (responseRef.current) {
+    responseRef.current.scrollIntoView({ behavior: "smooth" });
+  }
 
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          locale,
-          messages: finalMessage
-            ? [{ role: "user", content: finalMessage }]
-            : [],
-        }),
-      });
+  const finalMessage = cardMessage || userMessage;
 
-      const data = await res.json();
+  try {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        locale,
+        messages: finalMessage
+          ? [{ role: "user", content: finalMessage }]
+          : [],
+      }),
+    });
 
-      setResponseText(data.reply || "No response received.");
+    const data = await res.json();
 
-      setChatHistory((prev) => [
-        ...prev,
-        {
-          id: Date.now().toString(),
-          role: "user",
-          content: finalMessage || "",
-        },
-        {
-          id: (Date.now() + 1).toString(),
-          role: "assistant",
-          content: data.reply || "No response received.",
-        },
-      ]);
+    setResponseText(data.reply || "No response received.");
 
-      setUserMessage("");
-    } catch (err) {
-      console.error(err);
-      setResponseText("Failed to generate response.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    setChatHistory((prev) => [
+      ...prev,
+      {
+        id: Date.now().toString(),
+        role: "user",
+        content: finalMessage || "",
+      },
+      {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: data.reply || "No response received.",
+      },
+    ]);
+
+    setUserMessage("");
+  } catch (err) {
+    console.error(err);
+    setResponseText("Failed to generate response.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   // console.log("chathistory",chatHistory)
   // Explicitly read translation strings to fix INSUFFICIENT_PATH error
