@@ -10,7 +10,7 @@ import { MovingCard } from "@/components/MovingCard";
 import { useState, useRef, useEffect } from "react";
 import { LoaderOne } from "@/components/ui/loader";
 // import { Button } from "@/components/ui/moving-border";
-import { Send } from "lucide-react";
+import { Send ,Trash } from "lucide-react";
 import Image from "next/image";
 export default function HomePage() {
   const t = useTranslations("homepage");
@@ -85,6 +85,15 @@ export default function HomePage() {
   }
 };
 
+const clearChat = () => {
+  setChatHistory([]); // Clear chat history
+  setResponseText(""); // Optional: clear current response
+  setUserMessage(""); // Optional: clear input
+
+  // Smooth scroll to top
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
   // console.log("chathistory",chatHistory)
   // Explicitly read translation strings to fix INSUFFICIENT_PATH error
   const getProfileFromCard = (key: string) => {
@@ -129,13 +138,13 @@ export default function HomePage() {
 
   return (
     <main className="p-8 bg-white flex justify-center dark:bg-black text-black dark:text-white min-h-screen">
-      <div className="mt-6">
-        <div className="flex justify-center mb-4 rounded-full">
+      <div className="mt-3">
+        <div className="flex justify-center mb-20 rounded-full">
                         <Image
                           src="/logo.png"       // Place your logo in public/logo.png
                           alt="Logo"
-                          width={200}           // Adjust size as needed
-                          height={200}
+                          width={150}           // Adjust size as needed
+                          height={150}
                           className="object-contain"
                           priority               // Loads logo quickly
                         />
@@ -244,6 +253,13 @@ export default function HomePage() {
               disabled={!userMessage.trim()}
             >
               <Send />
+            </button>
+            <button
+              className="mt-2 px-2 py-5 bg-red-500 text-white rounded-md hover:bg-red-800 cursor-pointer hover:-translate-y-1.5"
+              onClick={clearChat} // <-- Add this
+
+            >
+              <Trash />
             </button>
           </div>
         )}
