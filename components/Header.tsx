@@ -6,6 +6,7 @@ import { Button } from "../components/ui/moving-border";
 import { useTranslations } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Header() {
   const t = useTranslations("header");
@@ -22,6 +23,7 @@ export default function Header() {
         <div className="hidden md:flex gap-2">
           <LanguageSelector />
           <ThemeToggle />
+          <UserButton/>
         </div>
         <button
           className="md:hidden p-2 rounded-md bg-gray-200 dark:bg-gray-800 cursor-pointer"
