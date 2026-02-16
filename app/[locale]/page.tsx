@@ -187,19 +187,7 @@ export default function HomePage() {
         </div>
 
         {/* Loader and Generated Response */}
-        <div
-          ref={responseRef}
-          className="mt-8 flex max-w-full md:mx-5 lg:mx-40 items-center justify-center"
-        >
-          {loading && (
-            <div className="text-blue-500 animate-pulse text-sm flex items-center gap-2">
-              Generating response <LoaderOne />
-            </div>
-          )}
-          {/* {!loading && responseText && (
-            <TextGenerateEffect words={responseText} className="text-md" />
-          )} */}
-        </div>
+        
         {chatHistory.length > 0 && (
           <div className="mt-4 max-w-full md:mx-5 lg:mx-40 flex flex-col gap-3">
             {chatHistory.map((msg) => (
@@ -220,6 +208,20 @@ export default function HomePage() {
             ))}
           </div>
         )}
+
+        <div
+          ref={responseRef}
+          className="mt-8 flex max-w-full md:mx-5 lg:mx-40 items-center justify-center"
+        >
+          {loading && (
+            <div className="text-blue-500 animate-pulse text-sm flex items-center gap-2">
+              Generating response <LoaderOne />
+            </div>
+          )}
+          {/* {!loading && responseText && (
+            <TextGenerateEffect words={responseText} className="text-md" />
+          )} */}
+        </div>
 
         {/* CHAT TEXTAREA — ONLY SHOW AFTER RESPONSE */}
         {!loading && responseText && (
