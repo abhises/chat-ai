@@ -34,9 +34,11 @@ export default function HomePage() {
   }, [responseText]);
 
   // Generate AI response for selected profile or user message
-  const generate = async (cardProfile?: Record<string, any>) => {
+  const generate = async (cardMessage?: string) => {
     setLoading(true);
     setResponseText("");
+
+    const finalMessage = cardMessage || userMessage;
 
     try {
       const res = await fetch("/api/chat", {
@@ -44,8 +46,9 @@ export default function HomePage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           locale,
-          profile: cardProfile || {},
-          messages: userMessage ? [{ role: "user", content: userMessage }] : [],
+          messages: finalMessage
+            ? [{ role: "user", content: finalMessage }]
+            : [],
         }),
       });
 
@@ -58,7 +61,7 @@ export default function HomePage() {
         {
           id: Date.now().toString(),
           role: "user",
-          content: userMessage || "Profile selected",
+          content: finalMessage || "",
         },
         {
           id: (Date.now() + 1).toString(),
@@ -137,62 +140,37 @@ export default function HomePage() {
         <div className="lg:ml-60 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-3 md:gap-4 mt-4">
           <MovingCard
             className="hover:scale-110 cursor-pointer sm:aspect-square"
-            onClick={() => generate(getProfileFromCard("canada"))}
+            onClick={() => generate(p("starter.messageone"))}
           >
             <div className="flex flex-col">
-              <span>🇨🇦 {p("canada.title")}</span>
-              <ul>
-                <li className="text-center">{p("canada.type")}</li>
-                <li className="text-center">{p("canada.device")}</li>
-                <li className="text-center">{p("canada.language")}</li>
-                <li className="text-center">{p("canada.availability")}</li>
-              </ul>
+              <span>{p("starter.messageone")}</span>
             </div>
           </MovingCard>
 
           <MovingCard
             className="hover:scale-110 cursor-pointer sm:aspect-square"
-            onClick={() => generate(getProfileFromCard("senegal"))}
+            onClick={() => generate(p("starter.messagetwo"))}
           >
             <div className="flex flex-col">
-              <span>🇸🇳 {p("senegal.title")}</span>
-              <ul>
-                <li className="text-center">{p("senegal.age")}</li>
-                <li className="text-center">{p("senegal.device")}</li>
-                <li className="text-center">{p("senegal.language")}</li>
-                <li className="text-center">{p("senegal.availability")}</li>
-                <li className="text-center">{p("senegal.budget")}</li>
-              </ul>
+              <span>{p("starter.messagetwo")}</span>
             </div>
           </MovingCard>
 
           <MovingCard
             className="hover:scale-110 cursor-pointer sm:aspect-square"
-            onClick={() => generate(getProfileFromCard("france"))}
+            onClick={() => generate(p("starter.messagethree"))}
           >
             <div className="flex flex-col">
-              <span>🇫🇷 {p("france.title")}</span>
-              <ul>
-                <li className="text-center">{p("france.type")}</li>
-                <li className="text-center">{p("france.device")}</li>
-                <li className="text-center">{p("france.language")}</li>
-                <li className="text-center">{p("france.availability")}</li>
-              </ul>
+              <span>{p("starter.messagethree")}</span>
             </div>
           </MovingCard>
 
           <MovingCard
             className="hover:scale-110 cursor-pointer sm:aspect-square"
-            onClick={() => generate(getProfileFromCard("germany"))}
+            onClick={() => generate(p("starter.messagefour"))}
           >
             <div className="flex flex-col">
-              <span>🇩🇪 {p("germany.title")}</span>
-              <ul>
-                <li className="text-center">{p("germany.type")}</li>
-                <li className="text-center">{p("germany.device")}</li>
-                <li className="text-center">{p("germany.language")}</li>
-                <li className="text-center">{p("germany.availability")}</li>
-              </ul>
+              <span>{p("starter.messagefour")}</span>
             </div>
           </MovingCard>
         </div>
@@ -219,10 +197,10 @@ export default function HomePage() {
                 className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`px-4 py-2 rounded-lg max-w-xs wrap-break-words ${
+                  className={`px-4 py-3 rounded-lg whitespace-pre-wrap wrap-break-words ${
                     msg.role === "user"
-                      ? "bg-blue-600 text-white rounded-br-none"
-                      : "bg-gray-200 dark:bg-slate-800 text-black dark:text-white rounded-bl-none"
+                      ? "bg-blue-600 text-white rounded-br-none max-w-xs"
+                      : "bg-gray-200 dark:bg-slate-800 text-black dark:text-white rounded-bl-none w-full max-w-3xl"
                   }`}
                 >
                   <TextGenerateEffect words={msg.content} className="text-sm" />

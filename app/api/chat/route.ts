@@ -8,21 +8,20 @@ const openai = new OpenAI({
 
 export async function POST(req: NextRequest) {
   try {
-    const { messages, locale = "en", profile } = await req.json();
+    const { messages, locale = "en" } = await req.json();
 
-    if (!profile) {
-      return NextResponse.json({ error: "Profile is required" }, { status: 400 });
+    if (!messages || messages.length === 0) {
+      return NextResponse.json(
+        { error: "Message is required" },
+        { status: 400 }
+      );
     }
 
     const systemPrompt = getSystemPrompt(locale);
 
     const chatMessages = [
       { role: "system", content: systemPrompt },
-      {
-        role: "user",
-        content: `User selected profile:\n${JSON.stringify(profile, null, 2)}\nPlease follow the Nabous AI Guide structure.`
-      },
-      ...(messages || [])
+      ...messages,
     ];
 
     const response = await openai.chat.completions.create({
@@ -36,6 +35,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ reply });
   } catch (err) {
     console.error("OpenAI API error:", err);
-    return NextResponse.json({ error: "OpenAI request failed" }, { status: 500 });
+    return NextResponse.json(
+      { error: "OpenAI request failed" },
+      { status: 500 }
+    );
   }
 }

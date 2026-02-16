@@ -54,6 +54,12 @@
       "device": "Zugang zu einem Laptop",
       "language": "Zweisprachig (Deutsch + weitere Sprache)",
       "availability": "3 Stunden pro Tag"
+    },
+    "starter": {
+      "messageone": "Hilf mir, eine erste einfache Idee zu finden, um mit KI Geld zu verdienen.",
+      "messagetwo": "Ich bin in Kanada oder Europa und möchte meinen ersten Kunden finden.",
+      "messagethree": "Ich bin in Afrika und suche eine einfache Dienstleistungsidee.",
+      "messagefour": "Ich weiß nicht, was ich verkaufen soll. Hilf mir bei der Auswahl."
     }
   }
 }

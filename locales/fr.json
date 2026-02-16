@@ -26,6 +26,7 @@
     "button1": "Générer un plan",
     "button2": "Poser une autre question",
     "generatingplan": "Génération du plan...",
+    
     "canada": {
     "title": "Profil Cas Canada",
     "type": "Immigré(e)",
@@ -54,6 +55,13 @@
     "device": "Accès à un ordinateur portable",
     "language": "Bilingue",
     "availability": "3 heures par jour"
-  }
+  },
+  "starter": {
+  "messageone": "Aide-moi à trouver une première idée simple pour gagner de l’argent avec l’IA.",
+  "messagetwo": "Je suis au Canada ou en Europe et je veux trouver mon premier client.",
+  "messagethree": "Je suis en Afrique et je cherche une idée de service simple.",
+  "messagefour": "Je ne sais pas quoi vendre, aide-moi à choisir."
+}
+
   }
 }
