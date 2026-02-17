@@ -138,8 +138,8 @@ const clearChat = () => {
 
   return (
     <main className="p-8 bg-white flex justify-center dark:bg-black text-black dark:text-white min-h-screen">
-      <div className="mt-3">
-        <div className="flex justify-center mb-20 rounded-full">
+      <div className="mt-10">
+        {/* <div className="flex justify-center mb-20 rounded-full">
                         <Image
                           src="/logo.png"       // Place your logo in public/logo.png
                           alt="Logo"
@@ -148,7 +148,7 @@ const clearChat = () => {
                           className="object-contain"
                           priority               // Loads logo quickly
                         />
-                      </div>
+                      </div> */}
         <motion.div className="relative mx-4 my-4 flex flex-col items-center justify-center gap-4 text-center sm:mx-0 sm:mb-0 sm:flex-row">
           <LayoutTextFlip text={`${t("headline")}`} />
         </motion.div>
