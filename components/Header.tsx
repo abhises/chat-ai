@@ -23,7 +23,9 @@ export default function Header() {
         <div className="hidden md:flex gap-2">
           <LanguageSelector />
           <ThemeToggle />
-          <UserButton/>
+          <UserButton
+            
+          />
         </div>
         <button
           className="md:hidden p-2 rounded-md bg-gray-200 dark:bg-gray-800 cursor-pointer"
@@ -75,7 +77,17 @@ export default function Header() {
             )} */}
             <ThemeToggle />
             <LanguageSelector />
-            <UserButton/>
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: {
+                    width: "40px",
+                    height: "40px",
+                    marginLeft: "4px",
+                  },
+                },
+              }}
+            />
           </div>
         </div>
       )}

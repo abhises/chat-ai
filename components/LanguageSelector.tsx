@@ -26,9 +26,9 @@ export function LanguageSelector() {
   return (
     <div className="relative inline-block text-left">
       {/* Button to open dropdown */}
-      <Button
+      <button
         onClick={() => setOpen(!open)}
-        className="px-3 h-full bg-gray-200 dark:bg-gray-800 rounded-md flex items-center gap-1 cursor-pointer text-sm"
+        className="p-3 h-full bg-gray-200 dark:bg-gray-800 rounded-md flex items-center gap-1 cursor-pointer text-sm"
       >
         <span>
           {languages.find((l) => pathname.split("/")[1] === l.code)?.flag ||
@@ -52,7 +52,7 @@ export function LanguageSelector() {
             d={open ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
           />
         </svg>
-      </Button>
+      </button>
 
       {/* Dropdown menu */}
       {open && (
