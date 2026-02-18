@@ -6,7 +6,7 @@ export default function Page() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
       
       {/* Logo */}
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <Image
           src="/logo.png"       // Place your logo in public/logo.png
           alt="Logo"
@@ -15,7 +15,7 @@ export default function Page() {
           className="object-contain"
           priority               // Loads logo quickly
         />
-      </div>
+      </div> */}
 
       {/* SignIn form */}
       <div className="flex justify-center">

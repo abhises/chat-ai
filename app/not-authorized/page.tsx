@@ -3,7 +3,6 @@
 import { SignOutButton } from '@clerk/nextjs'
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { use } from 'react';
 export default function NotAuthorizedPage() {
     const router =useRouter()
   return (
