@@ -75,6 +75,7 @@ export default function Header() {
             )} */}
             <ThemeToggle />
             <LanguageSelector />
+            <UserButton/>
           </div>
         </div>
       )}
